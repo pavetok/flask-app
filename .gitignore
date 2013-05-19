@@ -1,0 +1,12 @@
+.idea
+translations
+venv
+tmp
+search.db
+db_repository
+config.py
+cmd.bat
+*.py[co]
+*.db
+*.xml
+*.graphml

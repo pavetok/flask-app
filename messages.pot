@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-19 16:03+0400\n"
+"POT-Creation-Date: 2013-05-19 23:02+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,46 +31,58 @@ msgstr ""
 msgid "This nickname is already in use. Please choose another one."
 msgstr ""
 
-#: app/views.py:73
+#: app/translate.py:9
+msgid "Error: translation service not configured."
+msgstr ""
+
+#: app/translate.py:35
+msgid "Error: Unexpected error."
+msgstr ""
+
+#: app/views.py:51
+msgid "Your post is now live!"
+msgstr ""
+
+#: app/views.py:78
 msgid "Invalid login. Please try again."
 msgstr ""
 
-#: app/views.py:108
+#: app/views.py:113
 #, python-format
 msgid "User %(nickname)s not found."
 msgstr ""
 
-#: app/views.py:125
+#: app/views.py:130
 msgid "Your changes have been saved."
 msgstr ""
 
-#: app/views.py:141
+#: app/views.py:146
 msgid "You can't follow yourself!"
 msgstr ""
 
-#: app/views.py:145
+#: app/views.py:150
 #, python-format
 msgid "Cannot follow %(nickname)s."
 msgstr ""
 
-#: app/views.py:149
+#: app/views.py:154
 #, python-format
 msgid "You are now following %(nickname)s!"
 msgstr ""
 
-#: app/views.py:158
+#: app/views.py:163
 msgid "User  not found."
 msgstr ""
 
-#: app/views.py:161
+#: app/views.py:166
 msgid "You can't unfollow yourself!"
 msgstr ""
 
-#: app/views.py:165
+#: app/views.py:170
 msgid "Cannot unfollow ."
 msgstr ""
 
-#: app/views.py:169
+#: app/views.py:174
 msgid "You have stopped following ."
 msgstr ""
 
@@ -181,6 +193,10 @@ msgstr ""
 #: app/templates/post.html:6
 #, python-format
 msgid "%(nickname)s said %(when)s:"
+msgstr ""
+
+#: app/templates/post.html:10
+msgid "Translate"
 msgstr ""
 
 #: app/templates/search_results.html:5

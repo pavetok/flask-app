@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 
 from app import app, db
 from app.models import User, Post
+from app.translate import microsoft_translate
 
 
 class TestCase(unittest.TestCase):
@@ -114,6 +115,10 @@ class TestCase(unittest.TestCase):
         assert f2 == [p3, p2]
         assert f3 == [p4, p3]
         assert f4 == [p4]
+
+    def test_translation(self):
+        assert microsoft_translate(u'English', 'en', 'ru') == u'Английский'
+        assert microsoft_translate(u'Русский', 'ru', 'en') == u'Russian'
 
 if __name__ == '__main__':
     unittest.main()

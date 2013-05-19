@@ -2,6 +2,7 @@
 translations
 venv
 tmp
+stuff
 search.db
 db_repository
 config.py

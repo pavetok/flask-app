@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 #!flask/bin/python
 import sys
-
 import os
 
 if sys.platform == 'wn32':

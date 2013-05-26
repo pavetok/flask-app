@@ -1,8 +1,8 @@
 .idea
+.settings
 translations
 venv
 tmp
-stuff
 search.db
 db_repository
 config.py
@@ -11,3 +11,5 @@ cmd.bat
 *.db
 *.xml
 *.graphml
+.project
+.pydevproject

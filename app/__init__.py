@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from flask.ext.babel import Babel, lazy_gettext
-from momentjs import momentjs
+from momentjs import Momentjs
 import os
 from flask.ext.login import LoginManager
 from flask.ext.mail import Mail
@@ -24,7 +24,7 @@ oid = OpenID(app, os.path.join(basedir, 'tmp'))
 
 from app import views, models
 
-app.jinja_env.globals['momentjs'] = momentjs
+app.jinja_env.globals['momentjs'] = Momentjs
 
 if not app.debug:
     import logging

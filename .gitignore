@@ -13,3 +13,4 @@ cmd.bat
 *.graphml
 .project
 .pydevproject
+*.mo

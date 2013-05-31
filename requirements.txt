@@ -5,8 +5,9 @@ Flask-Login==0.1.3
 Flask-OpenID==1.1.1
 Flask-SQLAlchemy==0.16
 Flask-WTF==0.8.3
-Flask-WhooshAlchemy==0.55a
+git+git://github.com/miguelgrinberg/Flask-WhooshAlchemy
 Jinja2==2.7
+psycopg2==2.5
 SQLAlchemy==0.7.10
 Tempita==0.5.1
 WTForms==1.0.4

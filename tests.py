@@ -11,7 +11,7 @@ from coverage import coverage
 import os
 
 
-cov = coverage(branch = True, omit = ['flask-app/app/*', 'tests.py'])
+cov = coverage(branch = True, omit = ['venv/*', 'tests.py'])
 cov.start()
 
 

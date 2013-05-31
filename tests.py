@@ -11,7 +11,7 @@ from coverage import coverage
 import os
 
 
-cov = coverage(branch = True, omit = ['flask/*', 'tests.py'])
+cov = coverage(branch = True, omit = ['flask-app/app/*', 'tests.py'])
 cov.start()
 
 
@@ -34,17 +34,14 @@ class TestCase(unittest.TestCase):
         assert avatar[0:len(expected)] == expected
 
     def test_make_unique_nickname(self):
+        # create a user and write it to the database
         u = User(nickname = 'john', email = 'john@example.com')
         db.session.add(u)
         db.session.commit()
+        nickname = User.make_unique_nickname('susan')
+        assert nickname == 'susan'
         nickname = User.make_unique_nickname('john')
         assert nickname != 'john'
-        u = User(nickname = nickname, email = 'susan@example.com')
-        db.session.add(u)
-        db.session.commit()
-        nickname2 = User.make_unique_nickname('john')
-        assert nickname2 != 'john'
-        assert nickname2 != nickname
 
     def test_follow(self):
         u1 = User(nickname = 'john', email = 'john@example.com')

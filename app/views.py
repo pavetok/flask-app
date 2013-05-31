@@ -2,11 +2,12 @@
 from datetime import datetime
 from app.emails import follower_notification
 from app.translate import microsoft_translate
-from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, LANGUAGES
+from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, LANGUAGES, DATABASE_QUERY_TIMEOUT
 from flask import render_template, flash, redirect, session, url_for, request, g, jsonify
 from flask.ext.babel import gettext
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from app import app, db, login_manager, oid, babel
+from flask.ext.sqlalchemy import get_debug_queries
 from forms import LoginForm, EditForm, PostForm, SearchForm
 from guess_language import guessLanguage
 from models import User, ROLE_USER, Post
@@ -229,3 +230,12 @@ def delete(id):
     db.session.commit()
     flash('Your post has been deleted.')
     return redirect(url_for('index'))
+
+
+@app.after_request
+def after_request(response):
+    for query in get_debug_queries():
+        if query.duration >= DATABASE_QUERY_TIMEOUT:
+            app.logger.warning("SLOW QUERY: %s\nParameters: %s\nDuration: %fs\nContext: %s\n" %
+                               (query.statement, query.parameters, query.duration, query.context))
+    return response

@@ -6,6 +6,13 @@ from datetime import datetime, timedelta
 from app import app, db
 from app.models import User, Post
 from app.translate import microsoft_translate
+from config import basedir
+from coverage import coverage
+import os
+
+
+cov = coverage(branch = True, omit = ['flask/*', 'tests.py'])
+cov.start()
 
 
 class TestCase(unittest.TestCase):
@@ -136,4 +143,14 @@ class TestCase(unittest.TestCase):
         db.session.commit()
 
 if __name__ == '__main__':
-    unittest.main()
+    try:
+        unittest.main()
+    except:
+        pass
+    cov.stop()
+    cov.save()
+    print "\n\nCoverage Report:\n"
+    cov.report()
+    print "HTML version: " + os.path.join(basedir, "tmp/coverage/index.html")
+    cov.html_report(directory = 'tmp/coverage')
+    cov.erase()

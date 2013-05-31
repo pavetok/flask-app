@@ -10,7 +10,6 @@ cmd.bat
 *.py[co]
 *.db
 *.xml
-*.graphml
 .project
 .pydevproject
 *.mo
